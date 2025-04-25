@@ -1,0 +1,1625 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #09152B;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .slide {
+            width: 950px;
+            height: 540px;
+            background-color: white;
+            padding: 40px;
+            box-sizing: border-box;
+            position: relative;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+        }
+
+        .slide1 {
+            width: 950px;
+            height: 580px;
+            background-color: white;
+            padding: 40px;
+            box-sizing: border-box;
+            position: relative;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+        }
+
+        .slide12 {
+            width: 950px;
+            height: 620px;
+            background-color: white;
+            padding: 40px;
+            box-sizing: border-box;
+            position: relative;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+        }
+
+        .slide2 {
+            width: 950px;
+            height: 733px;
+            background-color: white;
+            padding: 40px;
+            box-sizing: border-box;
+            position: relative;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+        }
+        
+        .title-slide {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+        
+        .title-slide h1 {
+            color: #b25e04;
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .title-slide h2 {
+            color: #09152B;
+            font-size: 24px;
+            margin-top: 0;
+            text-align: center;
+        }
+        
+        h1 {
+            color: #b25e04;
+            font-size: 36px;
+            margin-bottom: 30px;
+        }
+        
+        h2 {
+            color: #09152B;
+            font-size: 24px;
+            margin-top: 0;
+        }
+        
+        .two-column {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .column {
+            width: 48%;
+        }
+        
+        .highlight-box {
+            background-color: rgba(178, 94, 4, 0.1);
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        
+        .data-point {
+            font-size: 42px;
+            font-weight: bold;
+            color: #b25e04;
+            margin: 0;
+        }
+        
+        .data-label {
+            font-size: 16px;
+            color: #09152B;
+            margin: 0;
+        }
+        
+        .icon-box {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .icon {
+            background-color: #09152B;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 15px;
+            font-weight: bold;
+        }
+        
+        .swot-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 20px;
+            height: 360px;
+        }
+        
+        .swot-box {
+            padding: 15px;
+            border-radius: 5px;
+        }
+        
+        .strengths {
+            background-color: rgba(178, 94, 4, 0.1);
+        }
+        
+        .weaknesses {
+            background-color: rgba(9, 21, 43, 0.1);
+        }
+        
+        .opportunities {
+            background-color: rgba(178, 94, 4, 0.1);
+        }
+        
+        .threats {
+            background-color: rgba(9, 21, 43, 0.1);
+        }
+        
+        .swot-title {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        .swot-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        
+        .swot-box li {
+            margin-bottom: 5px;
+        }
+        
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            position: relative;
+        }
+        
+        .timeline:before {
+            content: '';
+            position: absolute;
+            top: 30px;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background-color: #b25e04;
+            z-index: 1;
+        }
+        
+        .timeline-item {
+            position: relative;
+            z-index: 2;
+            width: 22%;
+            text-align: center;
+        }
+        
+        .timeline-dot {
+            width: 20px;
+            height: 20px;
+            background-color: #b25e04;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            position: relative;
+            top: 20px;
+        }
+        
+        .timeline-title {
+            font-weight: bold;
+            margin-top: 20px;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+        
+        .timeline-desc {
+            font-size: 12px;
+            color: #09152B;
+        }
+        
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            left: 40px;
+            right: 40px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: #09152B;
+        }
+        
+        .segment-card {
+            background-color: white;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .segment-title {
+            color: #b25e04;
+            font-size: 20px;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        
+        .segment-desc {
+            margin-bottom: 15px;
+        }
+        
+        .feature-list {
+            margin: 0;
+            padding-left: 20px;
+        }
+        
+        .quote {
+            font-style: italic;
+            margin: 30px 0;
+            padding-left: 20px;
+            border-left: 3px solid #b25e04;
+        }
+        
+        .metrics-row {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        
+        .metric-box {
+            text-align: center;
+            width: 30%;
+        }
+        
+        .big-number {
+            font-size: 42px;
+            font-weight: bold;
+            color: #b25e04;
+            margin: 0;
+        }
+        
+        .roadmap {
+            position: relative;
+            margin-top: 40px;
+        }
+        
+        .roadmap-line {
+            position: absolute;
+            top: 40px;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background-color: #b25e04;
+            z-index: 1;
+        }
+        
+        .roadmap-items {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .roadmap-item {
+            text-align: center;
+            width: 22%;
+        }
+        
+        .roadmap-dot {
+            width: 20px;
+            height: 20px;
+            background-color: #b25e04;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            position: relative;
+            top: 30px;
+        }
+        
+        .roadmap-title {
+            font-weight: bold;
+            margin-top: 30px;
+            margin-bottom: 5px;
+        }
+        
+        .roadmap-desc {
+            font-size: 14px;
+            color: #09152B;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Slide 1: Evolução de Produto - Jornada de Valor -->
+<div class="slide1">
+    <h1>Evolução de Produto - Jornada de Valor</h1>
+    <div class="two-column">
+        <div class="column">
+            <h2>Estratégia de Lançamento</h2>
+            <div class="icon-box">
+                <div class="icon">1</div>
+                <div>
+                    <h2>Web-first, Zero Fricção</h2>
+                    <p>MVP sem cadastro obrigatório para maximizar adoção inicial</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">2</div>
+                <div>
+                    <h2>Value Before Identity</h2>
+                    <p>Entregar valor tangível antes de solicitar dados do usuário</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">3</div>
+                <div>
+                    <h2>Problem Discovery Loop</h2>
+                    <p>Ciclo contínuo de validação de dores com early adopters</p>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <h2>Marcos do Produto</h2>
+            <div class="icon-box">
+                <div class="icon">A</div>
+                <div>
+                    <h2>MVP sem cadastro (Q2 2025)</h2>
+                    <p>QR codes + orçamentos automáticos + formulário de contato</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">B</div>
+                <div>
+                    <h2>PMF completo (Q3 2025)</h2>
+                    <p>Dashboard cliente + aprovações digitais + gestão de equipes</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">C</div>
+                <div>
+                    <h2>Scale-up (Q4 2025)</h2>
+                    <p>Financeiro + NF-e + marketplace de fornecedores</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div>DL Projetos e Construções</div>
+        <div>Confidencial</div>
+    </div>
+</div>
+
+<!-- Slide 2: MVP Essencial - Zero Fricção -->
+<div class="slide2">
+    <h1>MVP Essencial - Zero Fricção</h1>
+    <div class="two-column">
+        <div class="column">
+            <div class="icon-box">
+                <div class="icon">1</div>
+                <div>
+                    <h2>QR Codes Pré-Formatados</h2>
+                    <p>Etiquetas auto-explicativas que redirecionam para formulário de solicitação</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">2</div>
+                <div>
+                    <h2>Calculadora de Orçamento</h2>
+                    <p>Pricing engine simples com matriz de custos padrão e cotação instantânea</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">3</div>
+                <div>
+                    <h2>Status via WhatsApp</h2>
+                    <p>Notificações automatizadas sem necessidade de app ou cadastro</p>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <h2>Métricas de Sucesso</h2>
+            <div class="highlight-box">
+                <p class="data-point">300+</p>
+                <p class="data-label">Scans de QR code nos primeiros 30 dias</p>
+            </div>
+            <div class="highlight-box">
+                <p class="data-point">30%</p>
+                <p class="data-label">Taxa de conversão lead-to-orçamento</p>
+            </div>
+            <div class="highlight-box">
+                <p class="data-point">&lt; 5min</p>
+                <p class="data-label">Tempo médio de emissão de orçamento</p>
+            </div>
+        </div>
+    </div>
+    <div class="quote">
+        "No MVP, menos é mais. Nosso foco é validar a hipótese central: pessoas querem solicitar manutenções e receber orçamentos de forma digital, rápida e sem burocracia."
+    </div>
+    <div class="footer">
+        <div>DL Projetos e Construções</div>
+        <div>Confidencial</div>
+    </div>
+</div>
+
+<!-- Slide 3: Arquitetura Técnica do MVP -->
+<div class="slide1">
+    <h1>Arquitetura Técnica do MVP</h1>
+    <div class="two-column">
+        <div class="column">
+            <h2>Frontend Minimalista</h2>
+            <div class="icon-box">
+                <div class="icon">A</div>
+                <div>
+                    <h2>Landing Page + Webapp</h2>
+                    <p>React + Next.js para performance e SEO otimizado</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">B</div>
+                <div>
+                    <h2>Mobile Responsive</h2>
+                    <p>Design adaptativo para uso primário em smartphones</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">C</div>
+                <div>
+                    <h2>Calculadora de Preços</h2>
+                    <p>Algoritmo simples com matrizes de preço pré-definidas</p>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <h2>Backend Serverless</h2>
+            <div class="icon-box">
+                <div class="icon">1</div>
+                <div>
+                    <h2>Firebase / Supabase</h2>
+                    <p>Banco NoSQL + autenticação social + storage para fotos</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">2</div>
+                <div>
+                    <h2>Webhooks WhatsApp/Email</h2>
+                    <p>Notificações automatizadas via APIs de mensageria</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">3</div>
+                <div>
+                    <h2>QR API</h2>
+                    <p>Gerador de QR codes dinâmicos com tracking de escaneamento</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div>DL Projetos e Construções</div>
+        <div>Confidencial</div>
+    </div>
+</div>
+
+<!-- Slide 4: Evolução do MVP para PMF -->
+<div class="slide1">
+    <h1>Evolução do MVP para PMF</h1>
+    <div class="roadmap">
+        <div class="roadmap-line"></div>
+        <div class="roadmap-items">
+            <div class="roadmap-item">
+                <div class="roadmap-dot"></div>
+                <div class="roadmap-title">MVP Inicial</div>
+                <div class="roadmap-desc">QR Codes + Orçamentos + WhatsApp</div>
+            </div>
+            <div class="roadmap-item">
+                <div class="roadmap-dot"></div>
+                <div class="roadmap-title">MVP+30 dias</div>
+                <div class="roadmap-desc">Cadastros light + fotos + histórico básico</div>
+            </div>
+            <div class="roadmap-item">
+                <div class="roadmap-dot"></div>
+                <div class="roadmap-title">MVP+60 dias</div>
+                <div class="roadmap-desc">Dashboard básico + aprovações digitais</div>
+            </div>
+            <div class="roadmap-item">
+                <div class="roadmap-dot"></div>
+                <div class="roadmap-title">MVP+90 dias</div>
+                <div class="roadmap-desc">Pagamentos digitais + agenda técnicos</div>
+            </div>
+        </div>
+    </div>
+    <div class="two-column" style="margin-top: 60px;">
+        <div class="column">
+            <h2>Ciclos de Validação</h2>
+            <ul>
+                <li>Cada ciclo com métricas quantitativas claras</li>
+                <li>Entrevistas semanais com 3-5 usuários</li>
+                <li>NPS medido a cada interação completa</li>
+                <li>Análise de funil de conversão por semana</li>
+            </ul>
+        </div>
+        <div class="column">
+            <h2>PMF Thresholds</h2>
+            <ul>
+                <li>40%+ usuários voltando em 30 dias</li>
+                <li>NPS > 40 no primeiro trimestre</li>
+                <li>CAC recuperado em menos de 3 meses</li>
+                <li>Crescimento orgânico > 20% mês a mês</li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer">
+        <div>DL Projetos e Construções</div>
+        <div>Confidencial</div>
+    </div>
+</div>
+
+<!-- Slide 5: Cadastro e Onboarding -->
+<div class="slide1">
+    <h1>Cadastro e Onboarding Progressivo</h1>
+    <div class="two-column">
+        <div class="column">
+            <div class="icon-box">
+                <div class="icon">1</div>
+                <div>
+                    <h2>Social Login First</h2>
+                    <p>Google, Apple e WhatsApp para cadastro em 1 clique</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">2</div>
+                <div>
+                    <h2>Progressive Profiling</h2>
+                    <p>Coleta gradual de dados conforme valor entregue</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">3</div>
+                <div>
+                    <h2>Onboarding Gamificado</h2>
+                    <p>Progress bar + micro-recompensas por etapa completa</p>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <h2>Permissões e Perfis</h2>
+            <div class="icon-box">
+                <div class="icon">A</div>
+                <div>
+                    <h2>Multi-tier Roles</h2>
+                    <p>Solicitante, Aprovador, Gestor, Financeiro e Admin</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">B</div>
+                <div>
+                    <h2>Convites em cascata</h2>
+                    <p>Admin convida outros usuários com papéis específicos</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">C</div>
+                <div>
+                    <h2>Unidades x Organizações</h2>
+                    <p>Estrutura hierárquica para instituições multi-unidade</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div>DL Projetos e Construções</div>
+        <div>Confidencial</div>
+    </div>
+</div>
+
+<!-- Slide 6: Dashboard Cliente - Q3 2025 -->
+<div class="slide1">
+    <h1>Dashboard Cliente - Q3 2025</h1>
+    <div class="two-column">
+        <div class="column">
+            <div class="icon-box">
+                <div class="icon">1</div>
+                <div>
+                    <h2>Visão Consolidada</h2>
+                    <p>Status em tempo real de todas manutenções e projetos</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">2</div>
+                <div>
+                    <h2>Filtros Inteligentes</h2>
+                    <p>Visualização por status, prioridade, local e responsável</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">3</div>
+                <div>
+                    <h2>Calendário Integrado</h2>
+                    <p>Linha do tempo com previsão de todas as atividades</p>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <h2>Analytics de Valor</h2>
+            <div class="icon-box">
+                <div class="icon">A</div>
+                <div>
+                    <h2>Economia Visualizada</h2>
+                    <p>Métricas de economia em tempo e custos vs. processos tradicionais</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">B</div>
+                <div>
+                    <h2>Mapa de Calor</h2>
+                    <p>Visualização espacial das áreas com mais demandas</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">C</div>
+                <div>
+                    <h2>Previsibilidade</h2>
+                    <p>Tendências de manutenção baseadas em histórico</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div>DL Projetos e Construções</div>
+        <div>Confidencial</div>
+    </div>
+</div>
+
+<!-- Slide 7: Sistema de Aprovações Digitais -->
+<div class="slide1">
+    <h1>Sistema de Aprovações Digitais</h1>
+    <div class="two-column">
+        <div class="column">
+            <div class="icon-box">
+                <div class="icon">1</div>
+                <div>
+                    <h2>Fluxos Customizáveis</h2>
+                    <p>Regras de aprovação personalizadas por cliente e tipo de serviço</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">2</div>
+                <div>
+                    <h2>Níveis de Alçada</h2>
+                    <p>Aprovação em cascata conforme valor e complexidade</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">3</div>
+                <div>
+                    <h2>1-click Approval</h2>
+                    <p>Aprovação via email, SMS ou app sem necessidade de login</p>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <h2>Documentação Digital</h2>
+            <div class="icon-box">
+                <div class="icon">A</div>
+                <div>
+                    <h2>Assinatura Digital</h2>
+                    <p>E-sign nativo com validação jurídica completa</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">B</div>
+                <div>
+                    <h2>Trilha de Auditoria</h2>
+                    <p>Histórico completo de aprovações com timestamps e IPs</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">C</div>
+                <div>
+                    <h2>Smart Approvals</h2>
+                    <p>Aprovação automática para orçamentos recorrentes abaixo do limiar</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div>DL Projetos e Construções</div>
+        <div>Confidencial</div>
+    </div>
+</div>
+
+<!-- Slide 8: Financeiro e NFe - Q4 2025 -->
+<div class="slide1">
+    <h1>Financeiro e NFe - Q4 2025</h1>
+    <div class="two-column">
+        <div class="column">
+            <div class="icon-box">
+                <div class="icon">1</div>
+                <div>
+                    <h2>Módulo Financeiro</h2>
+                    <p>Controle completo de receitas, despesas e fluxo de caixa</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">2</div>
+                <div>
+                    <h2>Emissão NFe Integrada</h2>
+                    <p>Emissão automática após conclusão de serviços</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">3</div>
+                <div>
+                    <h2>Split Payments</h2>
+                    <p>Divisão automática para fornecedores e prestadores</p>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <h2>Gestão Financeira 360</h2>
+            <div class="icon-box">
+                <div class="icon">A</div>
+                <div>
+                    <h2>Integração Bancária</h2>
+                    <p>Open Banking para conciliação automática de pagamentos</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">B</div>
+                <div>
+                    <h2>Center de Custos</h2>
+                    <p>Categorização automática por tipo de serviço e unidade</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">C</div>
+                <div>
+                    <h2>Previsão de Caixa</h2>
+                    <p>Projeções financeiras com IA para planejamento orçamentário</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div>DL Projetos e Construções</div>
+        <div>Confidencial</div>
+    </div>
+</div>
+
+<!-- Slide 9: Marketplace de Fornecedores - Q4 2025 -->
+<div class="slide1">
+    <h1>Marketplace de Fornecedores - Q4 2025</h1>
+    <div class="two-column">
+        <div class="column">
+            <div class="icon-box">
+                <div class="icon">1</div>
+                <div>
+                    <h2>Vendor Management</h2>
+                    <p>Cadastro verificado com certificações e documentação</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">2</div>
+                <div>
+                    <h2>Matching Inteligente</h2>
+                    <p>Algoritmo de compatibilidade técnico-demanda</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">3</div>
+                <div>
+                    <h2>Sistema de Rating</h2>
+                    <p>Avaliações validadas por serviço realizado</p>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <h2>Trust & Quality</h2>
+            <div class="icon-box">
+                <div class="icon">A</div>
+                <div>
+                    <h2>Verificação Premium</h2>
+                    <p>Background check e validação avançada de fornecedores</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">B</div>
+                <div>
+                    <h2>Garantia de Serviço</h2>
+                    <p>Escrow de pagamento até satisfação confirmada</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">C</div>
+                <div>
+                    <h2>Quality Audits</h2>
+                    <p>Vistoria por amostragem em serviços selecionados</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div>DL Projetos e Construções</div>
+        <div>Confidencial</div>
+    </div>
+</div>
+
+<!-- Slide 10: IoT e Manutenção Preditiva - Q1 2026 -->
+<div class="slide1">
+    <h1>IoT e Manutenção Preditiva - Q1 2026</h1>
+    <div class="two-column">
+        <div class="column">
+            <div class="icon-box">
+                <div class="icon">1</div>
+                <div>
+                    <h2>Sensores de Baixo Custo</h2>
+                    <p>Dispositivos IoT plug-and-play para monitoramento ambiental</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">2</div>
+                <div>
+                    <h2>Machine Learning</h2>
+                    <p>Análise preditiva baseada em padrões históricos</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">3</div>
+                <div>
+                    <h2>Alertas Automáticos</h2>
+                    <p>Notificações preventivas antes de falhas críticas</p>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <h2>Data Hub Inteligente</h2>
+            <div class="icon-box">
+                <div class="icon">A</div>
+                <div>
+                    <h2>Dashboard BI</h2>
+                    <p>Visualização avançada de dados de sensores e manutenções</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">B</div>
+                <div>
+                    <h2>Consumo Energético</h2>
+                    <p>Monitoramento e otimização de energia com IA</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">C</div>
+                <div>
+                    <h2>BIM Integration</h2>
+                    <p>Modelo digital com dados em tempo real de cada sistema</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div>DL Projetos e Construções</div>
+        <div>Confidencial</div>
+    </div>
+</div>
+
+<!-- Slide 11: Inovação Futura - 2026+ -->
+<div class="slide2">
+    <h1>Inovação Futura - 2026+</h1>
+    <div class="two-column">
+        <div class="column">
+            <div class="icon-box">
+                <div class="icon">1</div>
+                <div>
+                    <h2>Digital Twins</h2>
+                    <p>Réplica virtual completa com simulações predictivas</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">2</div>
+                <div>
+                    <h2>AR para Manutenção</h2>
+                    <p>Sobreposição de informações e guias virtuais para técnicos</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">3</div>
+                <div>
+                    <h2>Robotização Básica</h2>
+                    <p>Drones de inspeção e robots para manutenções simples</p>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <h2>Expansão de Negócio</h2>
+            <div class="icon-box">
+                <div class="icon">A</div>
+                <div>
+                    <h2>Building OS</h2>
+                    <p>Sistema operacional completo para edificações inteligentes</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">B</div>
+                <div>
+                    <h2>Certificação Verde</h2>
+                    <p>Framework próprio para medição e certificação sustentável</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">C</div>
+                <div>
+                    <h2>Plataforma White-label</h2>
+                    <p>Sistema licenciável para grandes construtoras e facilities</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="quote">
+        "Não estamos apenas digitalizando manutenção predial - estamos criando o sistema operacional para o futuro das edificações inteligentes e sustentáveis."
+    </div>
+    <div class="footer">
+        <div>DL Projetos e Construções</div>
+        <div>Confidencial</div>
+    </div>
+</div>
+
+<!-- Slide 12: Modelo de Monetização em Evolução -->
+<div class="slide2">
+    <h1>Modelo de Monetização em Evolução</h1>
+    <div class="two-column">
+        <div class="column">
+            <h2>MVP - MVP+90</h2>
+            <div class="icon-box">
+                <div class="icon">1</div>
+                <div>
+                    <h2>Transacional Puro</h2>
+                    <p>Taxa fixa ou % sobre cada serviço contratado via plataforma</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">2</div>
+                <div>
+                    <h2>Freemium QR</h2>
+                    <p>QR codes gratuitos com limite de uso e funcionalidades</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">3</div>
+                <div>
+                    <h2>Comissionamento</h2>
+                    <p>15-20% sobre serviços técnicos terceirizados</p>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <h2>PMF - Scale</h2>
+            <div class="icon-box">
+                <div class="icon">A</div>
+                <div>
+                    <h2>SaaS por usuário</h2>
+                    <p>R$29-99/mês por usuário conforme perfil de acesso</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">B</div>
+                <div>
+                    <h2>Marketplace fee</h2>
+                    <p>8-12% sobre transações realizadas entre clientes e fornecedores</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">C</div>
+                <div>
+                    <h2>IoT como serviço</h2>
+                    <p>Assinatura mensal por sensores instalados + setup fee</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="highlight-box" style="margin-top: 40px;">
+        <p class="data-point">LTV:CAC > 5:1</p>
+        <p class="data-label">Meta para sustentabilidade financeira a longo prazo</p>
+    </div>
+    <div class="footer">
+        <div>DL Projetos e Construções</div>
+        <div>Confidencial</div>
+    </div>
+</div>
+
+<!-- Slide 13: Estratégia Go-to-Market -->
+<div class="slide1">
+    <h1>Estratégia Go-to-Market</h1>
+    <div class="two-column">
+        <div class="column">
+            <h2>Aquisição de Usuários</h2>
+            <div class="icon-box">
+                <div class="icon">1</div>
+                <div>
+                    <h2>Door-to-door Digital</h2>
+                    <p>QR codes pré-configurados como gift para prospects</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">2</div>
+                <div>
+                    <h2>Parcerias Associativas</h2>
+                    <p>Associações de condomínios e sindicatos educacionais</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">3</div>
+                <div>
+                    <h2>Content Marketing</h2>
+                    <p>Guias práticos de manutenção predial e eficiência</p>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <h2>Conversão e Expansão</h2>
+            <div class="icon-box">
+                <div class="icon">A</div>
+                <div>
+                    <h2>Onboarding High-Touch</h2>
+                    <p>Customer Success dedicado para clientes-chave</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">B</div>
+                <div>
+                    <h2>Programa de Referência</h2>
+                    <p>Incentivos para indicações qualificadas entre clientes</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">C</div>
+                <div>
+                    <h2>Land & Expand</h2>
+                    <p>Entrada via QR para expansão em módulos premium</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="quote">
+        "Nossa melhor ferramenta de aquisição é a experiência surpreendente do usuário. Cada solicitação via QR code é uma oportunidade de demonstrar valor instantâneo."
+    </div>
+    <div class="footer">
+        <div>DL Projetos e Construções</div>
+        <div>Confidencial</div>
+    </div>
+</div>
+
+<!-- Slide 14: QR Codes - O Início da Jornada -->
+<div class="slide1">
+    <h1>QR Codes - O Início da Jornada</h1>
+    <div class="two-column">
+        <div class="column">
+            <div class="icon-box">
+                <div class="icon">1</div>
+                <div>
+                    <h2>MVP - QR Simples</h2>
+                    <p>Formulário web com histórico via email/WhatsApp</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">2</div>
+                <div>
+                    <h2>PMF - QR Contextual</h2>
+                    <p>Códigos específicos por equipamento/área com histórico</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">3</div>
+                <div>
+                    <h2>Scale - QR Inteligente</h2>
+                    <p>Identificação automática de item, histórico e recomendações</p>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <h2>Diferencial Competitivo</h2>
+            <div class="icon-box">
+                <div class="icon">A</div>
+                <div>
+                    <h2>O2O Perfeito</h2>
+                    <p>Ponte perfeita entre mundo físico (edifício) e digital (plataforma)</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">B</div>
+                <div>
+                    <h2>Etiquetas NFC Premium</h2>
+                    <p>Versão avançada com NFC para dados completos e leitura passiva</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">C</div>
+                <div>
+                    <h2>Analytics Espacial</h2>
+                    <p>Mapa de calor de solicitações para gestão preventiva</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div>DL Projetos e Construções</div>
+        <div>Confidencial</div>
+    </div>
+</div>
+
+<!-- Slide 15: Engine de Orçamentos - Evolução -->
+<div class="slide1">
+    <h1>Engine de Orçamentos - Evolução</h1>
+    <div class="two-column">
+        <div class="column">
+            <div class="icon-box">
+                <div class="icon">1</div>
+                <div>
+                    <h2>MVP - Matriz de Preços</h2>
+                    <p>Tabela de preços básica com categorias pré-definidas</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">2</div>
+                <div>
+                    <h2>PMF - Orçamento Dinâmico</h2>
+                    <p>Cálculo inteligente baseado em complexidade e materiais</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">3</div>
+                <div>
+                    <h2>Scale - IA Preditiva</h2>
+                    <p>Machine learning com base no histórico para precificação otimizada</p>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <h2>Experiência do Cliente</h2>
+            <div class="icon-box">
+                <div class="icon">A</div>
+                <div>
+                    <h2>Transparência Total</h2>
+                    <p>Breakdown de custos com justificativa para cada item</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">B</div>
+                <div>
+                    <h2>Comparativo Automático</h2>
+                    <p>Preços de mercado x nosso preço para validação de economia</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">C</div>
+                <div>
+                    <h2>Cenários de Orçamento</h2>
+                    <p>Opções básica, recomendada e premium para cada serviço</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div>DL Projetos e Construções</div>
+        <div>Confidencial</div>
+    </div>
+</div>
+
+<!-- Slide 16: Matriz de Desenvolvimento de Produto -->
+<div class="slide2">
+    <h1>Matriz de Desenvolvimento de Produto</h1>
+    <div class="two-column">
+        <div class="column">
+            <h2>Ordem de Priorização</h2>
+            <div class="icon-box">
+                <div class="icon">1</div>
+                <div>
+                    <h2>QR + Orçamentos</h2>
+                    <p>Valor imediato sem fricção - Q2 2025</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">2</div>
+                <div>
+                    <h2>Dashboard + Aprovações</h2>
+                    <p>Controle e visibilidade - Q3 2025</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">3</div>
+                <div>
+                    <h2>Financeiro + NFe</h2>
+                    <p>Formalização e compliance - Q4 2025</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">4</div>
+                <div>
+                    <h2>IoT + Manutenção Preditiva</h2>
+                    <p>Valor avançado e retenção - Q1 2026</p>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <h2>Framework de Decisão</h2>
+            <div class="highlight-box">
+                <p class="data-point">Fricção vs. Valor</p>
+                <p class="data-label">Minimizar fricção e maximizar valor percebido</p>
+            </div>
+            <div class="highlight-box">
+                <p class="data-point">Implementação</p>
+                <p class="data-label">Priorizar quick wins (< 30 dias) com alto impacto</p>
+            </div>
+            <div class="highlight-box">
+                <p class="data-point">Retenção > Aquisição</p>
+                <p class="data-label">Features que aumentam uso recorrente</p>
+            </div>
+            <div class="highlight-box">
+                <p class="data-point">Efeitos de Rede</p>
+                <p class="data-label">Priorizar features que crescem com mais usuários</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div>DL Projetos e Construções</div>
+        <div>Confidencial</div>
+    </div>
+</div>
+
+<!-- Slide 17: Estratégia Mobile-First -->
+<div class="slide1">
+    <h1>Estratégia Mobile-First</h1>
+    <div class="two-column">
+        <div class="column">
+            <div class="icon-box">
+                <div class="icon">1</div>
+                <div>
+                    <h2>MVP - PWA Responsivo</h2>
+                    <p>Aplicação web progressiva com funcionalidades offline básicas</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">2</div>
+                <div>
+                    <h2>PMF - PWA Avançado</h2>
+                    <p>Notificações push, geolocalização e cache avançado</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">3</div>
+                <div>
+                    <h2>Scale - App Nativo</h2>
+                    <p>Aplicativo full-featured com acesso a recursos nativos do device</p>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <h2>Use Cases Prioritários</h2>
+            <div class="icon-box">
+                <div class="icon">A</div>
+                <div>
+                    <h2>Técnicos em Campo</h2>
+                    <p>Gestão de ordens de serviço, fotos e relatórios sem papel</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">B</div>
+                <div>
+                    <h2>Gestores em Trânsito</h2>
+                    <p>Aprovações rápidas e acompanhamento em qualquer lugar</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">C</div>
+                <div>
+                    <h2>Scan & Diagnóstico</h2>
+                    <p>Identificação visual de problemas via câmera + AI</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div>DL Projetos e Construções</div>
+        <div>Confidencial</div>
+    </div>
+</div>
+
+<!-- Slide 18: Métricas e KPIs por Estágio -->
+<div class="slide1">
+    <h1>Métricas e KPIs por Estágio</h1>
+    <div class="two-column">
+        <div class="column">
+            <h2>Pré-PMF</h2>
+            <div class="highlight-box">
+                <p class="data-point">Engagement</p>
+                <p class="data-label">Uso semanal > 40% dos usuários cadastrados</p>
+            </div>
+            <div class="highlight-box">
+                <p class="data-point">Retenção</p>
+                <p class="data-label">D1 > 40%, D7 > 25%, D30 > 15%</p>
+            </div>
+            <div class="highlight-box">
+                <p class="data-point">NPS</p>
+                <p class="data-label">Score > 40 para early adopters</p>
+            </div>
+        </div>
+        <div class="column">
+            <h2>Pós-PMF</h2>
+            <div class="highlight-box">
+                <p class="data-point">Aquisição</p>
+                <p class="data-label">CAC < R$300 para clientes SaaS</p>
+            </div>
+            <div class="highlight-box">
+                <p class="data-point">Monetização</p>
+                <p class="data-label">ARPA > R$500/mês por cliente</p>
+            </div>
+            <div class="highlight-box">
+                <p class="data-point">Expansão</p>
+                <p class="data-label">Net Revenue Retention > 110%</p>
+            </div>
+        </div>
+    </div>
+    <div class="two-column" style="margin-top: 40px;">
+        <div class="column">
+            <h2>North Star Metrics</h2>
+            <ul>
+                <li>Número de solicitações mensais via QR code</li>
+                <li>Volume financeiro transacionado na plataforma</li>
+                <li>Tempo médio entre solicitação e resolução</li>
+                <li>Economia gerada vs. processos tradicionais</li>
+            </ul>
+        </div>
+        <div class="column">
+            <h2>Growth Framework</h2>
+            <ul>
+                <li>AARRR (Aquisição, Ativação, Retenção, Receita, Referral)</li>
+                <li>Revisão semanal de métricas-chave</li>
+                <li>OKRs trimestrais com foco em PMF</li>
+                <li>Growth loops identificados e instrumentados</li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer">
+        <div>DL Projetos e Construções</div>
+        <div>Confidencial</div>
+    </div>
+</div>
+
+<!-- Slide 19: Integração de Sistemas -->
+<div class="slide1">
+    <h1>Integração de Sistemas</h1>
+    <div class="two-column">
+        <div class="column">
+            <h2>MVP - API First</h2>
+            <div class="icon-box">
+                <div class="icon">1</div>
+                <div>
+                    <h2>Webhooks Básicos</h2>
+                    <p>Integração via webhooks com sistemas de mensageria</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">2</div>
+                <div>
+                    <h2>SSO Social</h2>
+                    <p>Login via Google, Microsoft e WhatsApp</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">3</div>
+                <div>
+                    <h2>API Pública</h2>
+                    <p>Endpoints REST documentados para integrações básicas</p>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <h2>Scale - Ecossistema</h2>
+            <div class="icon-box">
+                <div class="icon">A</div>
+                <div>
+                    <h2>Integrações ERP</h2>
+                    <p>Conectores nativos para SAP, Totvs e outros ERPs populares</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">B</div>
+                <div>
+                    <h2>BIM/CAD Connect</h2>
+                    <p>Ponte entre plataforma e modelos de edificação</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">C</div>
+                <div>
+                    <h2>SDK Público</h2>
+                    <p>Kit de desenvolvimento para parceiros e integradores</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div>DL Projetos e Construções</div>
+        <div>Confidencial</div>
+    </div>
+</div>
+
+<!-- Slide 20: Segurança e Compliance -->
+<div class="slide1">
+    <h1>Segurança e Compliance</h1>
+    <div class="two-column">
+        <div class="column">
+            <div class="icon-box">
+                <div class="icon">1</div>
+                <div>
+                    <h2>Certificações Essenciais</h2>
+                    <p>LGPD, ISO 27001 e SOC 2 para confiabilidade institucional</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">2</div>
+                <div>
+                    <h2>Segurança por Design</h2>
+                    <p>Criptografia end-to-end e zero-knowledge proof</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">3</div>
+                <div>
+                    <h2>Conformidade Setorial</h2>
+                    <p>Aderência a normas específicas para setor público e privado</p>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <h2>Governança de Dados</h2>
+            <div class="icon-box">
+                <div class="icon">A</div>
+                <div>
+                    <h2>Segregação de Dados</h2>
+                    <p>Isolamento completo entre clientes por design</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">B</div>
+                <div>
+                    <h2>Auditoria Avançada</h2>
+                    <p>Logs imutáveis e trilhas de auditoria completas</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">C</div>
+                <div>
+                    <h2>Backup e Recuperação</h2>
+                    <p>Estratégia de backup geo-redundante e testes regulares</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div>DL Projetos e Construções</div>
+        <div>Confidencial</div>
+    </div>
+</div>
+
+<!-- Slide 21: Estratégia de Expansão de Mercado -->
+<div class="slide2">
+    <h1>Estratégia de Expansão de Mercado</h1>
+    <div class="two-column">
+        <div class="column">
+            <h2>Segmentos Prioritários</h2>
+            <div class="icon-box">
+                <div class="icon">1</div>
+                <div>
+                    <h2>MVP - Instituições Públicas</h2>
+                    <p>Escolas municipais e estaduais + CEUs em capitais</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">2</div>
+                <div>
+                    <h2>PMF - Condomínios</h2>
+                    <p>Residenciais de médio/alto padrão em capitais</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">3</div>
+                <div>
+                    <h2>Scale - Corporativo</h2>
+                    <p>Escritórios, hospitais e redes varejistas</p>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <h2>Estratégia de Penetração</h2>
+            <div class="icon-box">
+                <div class="icon">A</div>
+                <div>
+                    <h2>Land & Expand</h2>
+                    <p>Entrada com QR codes gratuitos para upgrade posterior</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">B</div>
+                <div>
+                    <h2>POV Strategy</h2>
+                    <p>Prova de valor em 30 dias com métricas tangíveis</p>
+                </div>
+            </div>
+            <div class="icon-box">
+                <div class="icon">C</div>
+                <div>
+                    <h2>Alianças Estratégicas</h2>
+                    <p>Parcerias com administradoras e secretarias de educação</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="quote">
+        "Não vendemos software. Vendemos eficiência operacional, transparência e tranquilidade para gestores de infraestrutura."
+    </div>
+    <div class="footer">
+        <div>DL Projetos e Construções</div>
+        <div>Confidencial</div>
+    </div>
+</div>
+
+<!-- Slide 22: De MVP a Unicórnio - Timeline Estendida -->
+<div class="slide">
+    <h1>De MVP a Unicórnio - Timeline Estendida</h1>
+    <div class="roadmap">
+        <div class="roadmap-line"></div>
+        <div class="roadmap-items">
+            <div class="roadmap-item">
+                <div class="roadmap-dot"></div>
+                <div class="roadmap-title">Q2 2025</div>
+                <div class="roadmap-desc">MVP: QR Codes + Orçamentos Automáticos</div>
+            </div>
+            <div class="roadmap-item">
+                <div class="roadmap-dot"></div>
+                <div class="roadmap-title">Q4 2025</div>
+                <div class="roadmap-desc">PMF: Dashboard + Financeiro + NF-e</div>
+            </div>
+            <div class="roadmap-item">
+                <div class="roadmap-dot"></div>
+                <div class="roadmap-title">Q2 2026</div>
+                <div class="roadmap-desc">Scale: IoT + Marketplace + Expansão Nacional</div>
+            </div>
+            <div class="roadmap-item">
+                <div class="roadmap-dot"></div>
+                <div class="roadmap-title">2027</div>
+                <div class="roadmap-desc">Série A + Expansão LATAM</div>
+            </div>
+        </div>
+    </div>
+    <div class="two-column" style="margin-top: 60px;">
+        <div class="column">
+            <h2>Metas de Desenvolvimento</h2>
+            <ul>
+                <li>500+ QR codes ativos até fim de 2025</li>
+                <li>R$ 1M+ em GMV mensal até Q2 2026</li>
+                <li>1,000+ clientes pagantes até fim de 2026</li>
+                <li>Presença em 5+ estados até 2027</li>
+            </ul>
+        </div>
+        <div class="column">
+            <h2>Visão 2030</h2>
+            <ul>
+                <li>OS do Mundo Físico: Sistema operacional para infraestrutura</li>
+                <li>R$ 100M+ em receita recorrente anual</li>
+                <li>Presença em toda América Latina</li>
+                <li>Modelo referência em PropTech para mercados emergentes</li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer">
+        <div>DL Projetos e Construções</div>
+        <div>Confidencial</div>
+    </div>
+</div>
